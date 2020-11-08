@@ -13,7 +13,7 @@ We look at the flow without the construction site, and see how much the flow is 
 We assume that bottlenecks usually appear close to construction sites, so we find a set of random pairs of nodes that are around the same construction site. We choose potential bottlenecks in the following way:
 We start a random-walk from a node on a construction site in two directions and we walk a predefined number of steps. In this way, we hope to find two nodes in the vicinity of a construction site. On those two nodes, we calculate the amount of flow-reduction.
 
-We do this often and choose the nodes which decrease the flow the most (percentage-vise).
+We do this often and choose the nodes which decrease the flow the most (percentage-vise). We have a threshold (given as the second parameter by the user), according to this threshold determines how 'heavy of a restriction' is counted as a bottleneck.
 
 ## Prototype/Implementation
 We fully implemented our algorithm in C++, it works as expected.
@@ -26,3 +26,5 @@ The part we did not end up finishing was the visualisation of our algorithm in t
 
 ## How to use this repository
 It is a flask-server, it runs a C++ script in the background, so C++ 17 needs to be installed.
+
+After running the Flask-Application one can input two numbers (we recommend 0.1 and 01-01-2024 to start), as the day and the 'resolution' the algorithm should be run on. The results should then be immediately visible on the map (note that for a lot of values, there are very few bottlenecks caused by construction sites).
