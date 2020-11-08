@@ -16,7 +16,7 @@ We start a random-walk from a node on a construction site in two directions and 
 We do this often and choose the nodes which decrease the flow the most (percentage-vise). We have a threshold (given as the second parameter by the user), according to this threshold determines how 'heavy of a restriction' is counted as a bottleneck.
 
 ## Prototype/Implementation
-We fully implemented our algorithm in C++, it works as expected.
+We fully implemented a working modified Edmonds-Karp algorithm in C++, Since this graph is very sparse, it is highly efficient.
 We implemented a GUI on a Flask-Webserver that allows the user to enter a date and a 'resolution', this data is then, sent to the server, evaluated and potential bottlenecks for this timespan are then displayed on a map in the browser. 
 In the background, a Flask-Server runs the C++ script and returns the data to the website.
 
