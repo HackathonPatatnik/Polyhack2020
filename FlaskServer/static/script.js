@@ -115,31 +115,57 @@ function percentageToHsl(percentage, hue0, hue1) {
 }
 
 
+function percentageToHsl(percentage, hue0, hue1) {
+    var hue = (percentage * (hue1 - hue0)) + hue0;
+    return 'hsl(' + hue + ', 100%, 50%)';
+}
+
 
 
 function plotLine(a,b, color)
 {
 
+  var color = percentageToHsl(color, 65, 0);
+ var styles = [
+        // linestring
+        new ol.style.Style({
+          stroke: new ol.style.Stroke({
+            color: color,
+            width: 2.5
+          })
+        })
+      ];
   var lonlat1 = ol.proj.fromLonLat([a.lat, a.lng]);
   var location1 = ol.proj.fromLonLat([b.lat, b.lng]);
-  var layer1 = new ol.layer.Vector({
-     source: new ol.source.Vector({
-         features: [
-             new ol.Feature({
-                 geometry: new ol.geom.LineString([lonlat1, location1])
-             })
-         ]
+  var line = new ol.Feature({
+                 geometry: new ol.geom.LineString([lonlat1, location1]),
+                    name: 'Line',
+                    //style: styles
+                });
 
-     })
-
- });
-
- console.log("End");
-  layer1.setZIndex(0.5);
-  //map.addLayer(layer1);
-  return layer1;
+                line.setStyle(styles);
+                var layer1 = new ol.layer.Vector({
+                   source: new ol.source.Vector({
+                       features: [
+                           line
+                       ]
+                })
+               });
+                layer1.setZIndex(0.5);
+                //layer1.setOpacity(0.5);
+                return layer1;
 }
 //map.addLayer(plotLine(nodes, nodes, 0));
+
+
+
+
+
+
+
+
+
+
 
 
 function LoadDoc()
@@ -170,6 +196,7 @@ function LoadDoc()
 function fun(dat)
 {
   console.log(map);
+  map.setLayerGroup(new ol.layer.Group());
   olms.apply(map, styleJson);
 
 
@@ -187,7 +214,7 @@ for (i in dat)
     }
 
 
-    map.addLayer(plotLine(new Node(dat[i][0],parseFloat(dat[i][1]), parseFloat(dat[i][2])), new Node(dat[i][3],parseFloat(dat[i][4]), parseFloat(dat[i][5])), 0));
+    map.addLayer(plotLine(new Node(dat[i][0],parseFloat(dat[i][1]), parseFloat(dat[i][2])), new Node(dat[i][3],parseFloat(dat[i][4]), parseFloat(dat[i][5])), parseFloat(dat[i][7])/parseFloat(dat[i][6])*0.9-0.1));
     map.addLayer(plotPoint(new Node(dat[i][0],parseFloat(dat[i][1]), parseFloat(dat[i][2]))));
     map.addLayer(plotPoint(new Node(dat[i][3],parseFloat(dat[i][4]), parseFloat(dat[i][5]))));
   }
