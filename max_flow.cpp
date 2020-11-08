@@ -230,7 +230,7 @@ void solve_input(ofstream& fout) { // given the user input, compute the desired 
   for (auto it : ans) {
     if ((1.0 * it.initial - it.reduced) / it.initial > REDUCED_LIM) { // check the threshold
       fout << nodes[it.from] << "," << setprecision(11) << fixed << coord[it.from].first << "," << setprecision(10) << fixed << coord[it.from].second << ",";
-      fout << nodes[it.to] << "," << setprecision(11) << fixed << coord[it.to].first << ", " << setprecision(10) << fixed << coord[it.to].second << ",";
+      fout << nodes[it.to] << "," << setprecision(11) << fixed << coord[it.to].first << "," << setprecision(10) << fixed << coord[it.to].second << ",";
       fout << it.initial << "," << it.reduced << endl;
     }
   }
