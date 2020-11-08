@@ -1,0 +1,95 @@
+.map {
+  height: 90%;
+}
+.catalog-container {
+  width: 350px;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.catalog-title {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  text-indent: 1em;
+  display: block;
+}
+
+.catalog-title:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.catalog-content {
+  padding-left: 12px;
+  padding-bottom: 12px;
+  display: block;
+}
+
+button, input[type=checkbox] {
+  cursor: pointer;
+}
+
+
+.btn.legend-btn {
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  font-family: serif;
+  padding: 0 6px;
+  height: 16px;
+  margin-left: 10px;
+}
+
+.modal-dialog .modal-header {
+  padding: 0px 15px;
+  background-color: #f7f7f7;
+  height: 50px;
+  border-radius: inherit;
+}
+
+.modal-dialog .modal-header h4 {
+  margin-top: 15px;
+}
+
+.modal-body {
+  padding: 0;
+  overflow-y: auto;
+  max-height: 340px;
+  font-size: 12px;
+}
+
+.modal-header .close {
+  opacity: 1;
+  font-size: 26px;
+  line-height: 2em;
+  width: 18px;
+  background-color: transparent;
+}
+
+.bod-title {
+  color: red;
+  padding-top: 8px;
+  padding-left: 8px;
+  background-color: #eee;
+  margin-bottom: 0px;
+}
+
+.legend-abstract {
+  background-color: #eee;
+  padding: 8px;
+  margin-bottom: 0px;
+}
+
+.legend-footer {
+  padding: 8px;
+}
+
+.legend-footer span {
+  font-weight: bold;
+}
